@@ -9,7 +9,11 @@ FROM phusion/baseimage:jammy-1.0.2
 
 RUN apt update
 RUN apt -y upgrade
-RUN apt -y install wget curl
+RUN apt -y install wget curl dnsutils netcat openssl telnet
+
+RUN apt -y install ca-certificates
+
+COPY . .
 
 CMD ["/sbin/my_init"]
-# Clean up APT when done.CMD ["/sbin/my_init"]
+
